@@ -1,4 +1,4 @@
-# com.arya.cassandra
+# spring-boot-cassandra-crud
 Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra DB
 
 
