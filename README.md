@@ -15,6 +15,7 @@ Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra 
       Request Body  
       ```
         {
+            "id": 1,
             "name": "Tony",
             "superName": "Iron Man",
             "profession": "Business",
@@ -32,7 +33,7 @@ Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra 
       Request Body  
       ```
         {
-            "id": "1"
+            "id": 1,
             "name": "Tony",
             "superName": "Iron Man",
             "profession": "Business",
