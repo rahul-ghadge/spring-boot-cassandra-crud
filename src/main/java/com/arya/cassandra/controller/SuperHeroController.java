@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,14 @@ public class SuperHeroController {
     @Autowired
     private SuperHeroService superHeroService;
 
+
+
+    @Operation(summary = "Get a Super heroes list")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Super heroes list",
+                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = List.class))}),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+    })
     @GetMapping
     public ResponseEntity<List<SuperHero>> findAll() {
         List<SuperHero> list = superHeroService.findAll();
@@ -28,10 +37,12 @@ public class SuperHeroController {
     }
 
 
+
+
     @Operation(summary = "Get a Super hero by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Super hero",
-                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = SuperHero.class))}),
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = SuperHero.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
@@ -43,6 +54,14 @@ public class SuperHeroController {
     }
 
 
+
+
+    @Operation(summary = "Save Super hero")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Save Super hero",
+                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = SuperHero.class))}),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+    })
     @PostMapping
     public ResponseEntity<SuperHero> save(@RequestBody SuperHero superHero) {
         SuperHero savedSuperHero = superHeroService.save(superHero);
@@ -50,6 +69,13 @@ public class SuperHeroController {
     }
 
 
+
+    @Operation(summary = "Update Super hero")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Update Super hero",
+                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = SuperHero.class))}),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+    })
     @PutMapping
     public ResponseEntity<SuperHero> update(@RequestBody SuperHero superHero) {
         SuperHero updatedSuperHero = superHeroService.update(superHero);
@@ -57,6 +83,13 @@ public class SuperHeroController {
     }
 
 
+
+
+    @Operation(summary = "Delete a Super hero by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Delete the Super hero",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = String.class))})
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         superHeroService.delete(id);
