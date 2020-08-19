@@ -36,6 +36,6 @@ public class SuperHeroServiceImpl implements SuperHeroService {
 
     @Override
     public void delete(String id) {
-       repository.findById(id).ifPresent(superHero -> repository.delete(superHero));
+        repository.findById(id).ifPresent(superHero -> repository.delete(superHero));
     }
 }

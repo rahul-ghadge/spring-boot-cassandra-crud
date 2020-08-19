@@ -35,7 +35,7 @@ public class SuperHeroController {
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = SuperHero.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content)}
-                    )
+    )
     @GetMapping("/{id}")
     public ResponseEntity<SuperHero> findById(@PathVariable String id) {
         SuperHero superHero = superHeroService.findById(id);

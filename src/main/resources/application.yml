@@ -1,13 +1,11 @@
-
-
 spring:
   data:
     cassandra:
-      contact-points: localhost
+      contact-points: 192.168.0.105
       port: 9042
       keyspace-name: simple_crud
-#      username: cassandra
-#      password: cassandra
+      #      username: cassandra
+      #      password: cassandra
       schema-act: create_if_not_exists
 
 springdoc:
