@@ -9,7 +9,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +32,7 @@ public class SuperHeroController {
     @Operation(summary = "Get a Super hero by its id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Found the Super hero",
-                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = SuperHero.class))}),
+                    content = {@Content(mediaType = "application/json", schema = @Schema(implementation = SuperHero.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
             @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content)}
                     )

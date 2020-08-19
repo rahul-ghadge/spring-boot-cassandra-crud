@@ -19,7 +19,7 @@ public class SuperHero implements Serializable {
 
     private String name;
 
-    @Column("super_namae")
+    @Column("super_name")
     private String superName;
 
     private String profession;
