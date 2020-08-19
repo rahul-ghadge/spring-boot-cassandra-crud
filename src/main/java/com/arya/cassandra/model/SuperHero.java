@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class SuperHero implements Serializable {
 
     @PrimaryKey
-    private String id;
+    private Long id;
 
     private String name;
 
@@ -26,7 +26,7 @@ public class SuperHero implements Serializable {
 
     private int age;
 
-    @Column("super_power")
+    @Column("super_powers")
     private SuperPowers superPowers;
 
 }

@@ -20,7 +20,7 @@ public class SuperHeroServiceImpl implements SuperHeroService {
     }
 
     @Override
-    public SuperHero findById(String id) {
+    public SuperHero findById(Long id) {
         return repository.findById(id).orElse(SuperHero.builder().build());
     }
 
@@ -35,7 +35,7 @@ public class SuperHeroServiceImpl implements SuperHeroService {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         repository.findById(id).ifPresent(superHero -> repository.delete(superHero));
     }
 }

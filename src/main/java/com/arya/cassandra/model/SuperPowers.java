@@ -1,21 +1,21 @@
 package com.arya.cassandra.model;
 
-import java.io.Serializable;
-
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
+
+import java.io.Serializable;
 
 @Data
 @Builder
 @UserDefinedType("super_powers")
 public class SuperPowers implements Serializable {
 
-    @Column
+    @Column("strength")
     private String strength;
-    @Column
+    @Column("durability")
     private String durability;
-    @Column
+    @Column("canFly")
     private boolean canFly;
 }

@@ -33,10 +33,11 @@ public class SuperHeroController {
             @ApiResponse(responseCode = "200", description = "Found the Super hero",
                     content = {@Content(mediaType = "application/json", schema = @Schema(implementation = SuperHero.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
-            @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content)}
-    )
+            @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+    })
     @GetMapping("/{id}")
-    public ResponseEntity<SuperHero> findById(@PathVariable String id) {
+    public ResponseEntity<SuperHero> findById(@PathVariable Long id) {
         SuperHero superHero = superHeroService.findById(id);
         return ResponseEntity.ok().body(superHero);
     }
@@ -57,7 +58,7 @@ public class SuperHeroController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable String id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         superHeroService.delete(id);
         return ResponseEntity.ok().body("Deleted successfully...!");
     }

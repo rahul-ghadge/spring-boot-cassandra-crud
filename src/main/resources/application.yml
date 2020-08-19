@@ -11,3 +11,7 @@ spring:
 springdoc:
   swagger-ui:
     path: /swagger-ui-custom.html
+
+#logging:
+#  level:
+#    root: DEBUG

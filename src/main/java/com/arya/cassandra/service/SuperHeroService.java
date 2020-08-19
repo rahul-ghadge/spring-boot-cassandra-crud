@@ -9,11 +9,11 @@ public interface SuperHeroService {
 
     List<SuperHero> findAll();
 
-    SuperHero findById(String id);
+    SuperHero findById(Long id);
 
     SuperHero save(SuperHero superHero);
 
     SuperHero update(SuperHero superHero);
 
-    void delete(String id);
+    void delete(Long id);
 }
