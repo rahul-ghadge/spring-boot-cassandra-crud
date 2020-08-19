@@ -10,12 +10,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 import java.util.List;
 
 @SpringBootApplication
-@EnableCassandraRepositories("com.arya.cassandra.repository")
 public class SpringBootCassandraCrudApplication {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
