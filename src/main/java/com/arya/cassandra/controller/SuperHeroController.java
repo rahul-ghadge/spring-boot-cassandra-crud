@@ -3,7 +3,14 @@ package com.arya.cassandra.controller;
 
 import com.arya.cassandra.model.SuperHero;
 import com.arya.cassandra.service.SuperHeroService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,35 +24,42 @@ public class SuperHeroController {
     private SuperHeroService superHeroService;
 
     @GetMapping
-    public ResponseEntity<List<?>> findAll() {
-        List<?> list = superHeroService.findAll();
+    public ResponseEntity<List<SuperHero>> findAll() {
+        List<SuperHero> list = superHeroService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
 
+    @Operation(summary = "Get a Super hero by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Super hero",
+                    content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = SuperHero.class))}),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied", content = @Content),
+            @ApiResponse(responseCode = "404", description = "Super hero not found", content = @Content)}
+                    )
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable String id) {
+    public ResponseEntity<SuperHero> findById(@PathVariable String id) {
         SuperHero superHero = superHeroService.findById(id);
         return ResponseEntity.ok().body(superHero);
     }
 
 
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody SuperHero superHero) {
+    public ResponseEntity<SuperHero> save(@RequestBody SuperHero superHero) {
         SuperHero savedSuperHero = superHeroService.save(superHero);
         return ResponseEntity.ok().body(savedSuperHero);
     }
 
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestBody SuperHero superHero) {
+    public ResponseEntity<SuperHero> update(@RequestBody SuperHero superHero) {
         SuperHero updatedSuperHero = superHeroService.update(superHero);
         return ResponseEntity.ok().body(updatedSuperHero);
     }
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
+    public ResponseEntity<String> delete(@PathVariable String id) {
         superHeroService.delete(id);
         return ResponseEntity.ok().body("Deleted successfully...!");
     }

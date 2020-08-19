@@ -15,7 +15,7 @@ public class SuperHeroServiceImpl implements SuperHeroService {
     private SuperHeroRepository repository;
 
     @Override
-    public List<?> findAll() {
+    public List<SuperHero> findAll() {
         return repository.findAll();
     }
 

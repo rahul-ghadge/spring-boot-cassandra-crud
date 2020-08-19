@@ -8,3 +8,7 @@ spring:
       keyspace-name: simple_crud
       username: cassandra
       password: cassandra
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
