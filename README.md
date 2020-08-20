@@ -351,6 +351,6 @@ If no error on the console means **cqlsh** is connected.
 
 
 
-### Console Output
+### Output
 
 ![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
