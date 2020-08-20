@@ -1,5 +1,51 @@
 # spring-boot-cassandra-crud
-Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra DB
+Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra DB - 
+In this application, we have implemented CRUD (Create, Read, Update, Delete) operations using spring data and cassandra DB.  
+
+
+## Prerequisites 
+- Java
+- [Spring Boot](https://spring.io/projects/spring-boot)
+- [Maven](https://maven.apache.org/guides/index.html)
+- [Cassandra](https://cassandra.apache.org/)
+
+
+## Tools
+- Eclipse or IntelliJ IDEA (or any preferred IDE) with embedded Gradle
+- Maven (version >= 3.6.0)
+- Postman (or any RESTful API testing tool)
+- cqlsh (Cassandra query language shell) - for monitoring stored data
+
+
+
+### Install JDK8
+Step 1: Download JDK8 from [JDK site](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+
+Step 2: Install downloaded executable file.
+
+Step 3: Add JDK8 path as environment variable.
+
+
+
+### Setup CQLSH (Cassandra query language shell) - for monitoring stored data
+Step 1: **Python2.7** is mandatory for cqlsh to handle user requests. Download Python2.7 from [Python site](https://www.python.org/downloads/release/python-2718/)
+
+Step 2: Install downloaded executable file.
+
+Step 3: Add Python2.7 path as environment variable.
+
+
+
+
+### Setup Cassandra
+Step 1: Download the latest version of apache-cassandra-x.xx.x from [Cassandra site](https://cassandra.apache.org/download/)
+
+Step 2: Unzip the compressed zip file using a compression tool to any location. Ex. c:\apache-cassandra-x.xx.x
+
+Step 3: Add c:\apache-cassandra-x.xx.x\bin path as environment variable
+
+
+
 
 
 
