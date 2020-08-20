@@ -43,6 +43,8 @@ Or
 
 > **http://localhost:8080/swagger-ui-custom.html**
 
+![Swagger Documentation](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
+
 ---
 
 ### Install JDK8
@@ -313,39 +315,39 @@ If no error on the console means **cqlsh** is connected.
        
     > **POST Mapping** http://localhost:8080/super-hero  - Add new Super Hero in DB  
     
-      Request Body  
-      ```
-        {
-            "id": 1,
-            "name": "Tony",
-            "superName": "Iron Man",
-            "profession": "Business",
-            "age": 50,            
-            "superPowers": {
-                "strength": "a lot",
-                "durability": "a lot",
-                "canFly": true
-            }
-        }
-      ```
+     Request Body  
+     ```
+     {
+         "id": 1,
+         "name": "Tony",
+         "superName": "Iron Man",
+         "profession": "Business",
+         "age": 50,            
+         "superPowers": {
+             "strength": "Suit",
+             "durability": "Month",
+             "canFly": true
+         }
+     }
+     ```
     
     > **PUT Mapping** http://localhost:8080/super-hero  - Update existing Super Hero for given ID 
-                                                       
-      Request Body  
-      ```
-        {
-            "id": 1,
-            "name": "Tony",
-            "superName": "Iron Man",
-            "profession": "Business",
-            "age": 50,         
-            "superPowers": {
-                "strength": "Only if he is in a suit",
-                "durability": "a lot",
-                "canFly": true
-            }
-        }
-      ```
+    
+     Request Body    
+     ```
+     {
+         "id": 1,
+         "name": "Tony",
+         "superName": "Iron Man",
+         "profession": "Business",
+         "age": 50,         
+         "superPowers": {
+             "strength": "Only if he is in a suit",
+             "durability": "Month",
+             "canFly": true
+         }
+     }
+     ```
     
     > **DELETE Mapping** http://localhost:8080/super-hero/1  - Delete Super Hero by ID
 
@@ -354,3 +356,4 @@ If no error on the console means **cqlsh** is connected.
 ### Output
 
 ![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
+![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")

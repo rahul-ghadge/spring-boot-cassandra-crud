@@ -19,7 +19,7 @@ public class SuperHeroQueryRepositoryImpl implements SuperHeroQueryRepository {
 
     @Override
     public List<SuperHero> getAll() {
-        return cassandraTemplate.select(Query.empty(),SuperHero.class);
+        return cassandraTemplate.select(Query.empty(), SuperHero.class);
     }
 
     @Override
