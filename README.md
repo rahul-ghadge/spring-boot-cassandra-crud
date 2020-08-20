@@ -3,6 +3,12 @@ Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra 
 
 
 
+## For API document using OpenAPI UI 
+
+> http://localhost:8080/swagger-ui-custom.html
+
+
+
 ### API Endpoints
 
 - #### Super Hero CRUD Operations
@@ -48,3 +54,8 @@ Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra 
     
     > **DELETE Mapping** http://localhost:8080/super-hero/1  - Delete Super Hero by ID
 
+
+
+### Console Output
+
+![Alt text](https://github.com/rahul-ghadge/spring-boot-kafka/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
