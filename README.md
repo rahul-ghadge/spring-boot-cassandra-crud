@@ -58,4 +58,4 @@ Spring boot CRUD (Create, Read, Update, Delete) demo application with cassandra 
 
 ### Console Output
 
-![Alt text](https://github.com/rahul-ghadge/spring-boot-kafka/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
+![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
