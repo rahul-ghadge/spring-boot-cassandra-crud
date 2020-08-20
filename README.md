@@ -38,6 +38,12 @@ Or
 | **_Note_** : In `SpringBootCassandraCrudApplication.java` class we have autowired both SuperHero repositories. <br/>If there is no record present in DB for any one of that SuperHero model class, static data is getting inserted in DB from `HelperUtil.java` class when we are starting the app for the first time.| 
 
 
+---
+### For API document using OpenAPI UI 
+
+> **http://localhost:8080/swagger-ui-custom.html**
+
+---
 
 ### Install JDK8
 Step 1: Download JDK8 from [JDK site](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html).
@@ -234,14 +240,12 @@ If no error on the console means **cqlsh** is connected.
        protected String getKeyspaceName() {
            return KEYSPACE;
        }
-   
+      
        @Override
        public String[] getEntityBasePackages() {
            return new String[] {"com.arya.cassandra.model"};
-       }
-   
-   }
-   ```
+       }   
+   }  
    
 5. #### CRUD operation for Super Heroes
 
@@ -298,11 +302,7 @@ If no error on the console means **cqlsh** is connected.
     
 
 
-### For API document using OpenAPI UI 
-
-> http://localhost:8080/swagger-ui-custom.html
-
-
+<br/>
 
 ### API Endpoints
 
