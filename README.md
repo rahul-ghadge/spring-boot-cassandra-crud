@@ -263,19 +263,19 @@ If no error on the console means **cqlsh** is connected.
     public class SuperHeroController {
         
         @GetMapping
-        public ResponseEntity<List<   SuperHero>> findAll();
+        public ResponseEntity<List<SuperHero>> findAll();
     
         @GetMapping("/{id}")
-        public ResponseEntity<   SuperHero> findById(@PathVariable String id);
+        public ResponseEntity<SuperHero> findById(@PathVariable String id);
     
         @PostMapping
-        public ResponseEntity<   SuperHero> save(@RequestBody SuperHero superHero);
+        public ResponseEntity<SuperHero> save(@RequestBody SuperHero superHero);
     
         @PutMapping
-        public ResponseEntity<   SuperHero> update(@RequestBody SuperHero superHero);
+        public ResponseEntity<SuperHero> update(@RequestBody SuperHero superHero);
     
         @DeleteMapping("/{id}")
-        public ResponseEntity<   SuperHero> delete(@PathVariable String id);
+        public ResponseEntity<SuperHero> delete(@PathVariable String id);
     }
     ```
    
