@@ -15,7 +15,7 @@ public class OpenAPIConfig {
         return new OpenAPI()
                 .info(new Info().title("Super Hero API")
                 .version(appVersion)
-                .description("This is a sample CRUD application using spring data and cassandra - a library for OpenAPI 3 with spring boot.")
+                .description("This is a sample CRUD application using spring data and cassandra.")
                 .termsOfService("http://swagger.io/terms/")
                 .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }

@@ -9,6 +9,7 @@ spring:
       #schema-act: create_if_not_exists
 
 springdoc:
+  version: 1.0.0
   swagger-ui:
     path: /swagger-ui-custom.html
 
