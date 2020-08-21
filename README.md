@@ -43,7 +43,7 @@ Or
 
 > **http://localhost:8080/swagger-ui-custom.html**
 
-![Swagger Documentation](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
+![Swagger Documentation](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/static/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
 
 ---
 
@@ -355,5 +355,4 @@ If no error on the console means **cqlsh** is connected.
 
 ### Output
 
-![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
-![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
+![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/static/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
