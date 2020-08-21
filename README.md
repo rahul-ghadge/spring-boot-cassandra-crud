@@ -87,7 +87,7 @@ If no error on the console means cassandra is started and running.
 
 
 ##### Start cqlsh 
-Make sure bin path is set for the python in environment variable. 
+Make sure path is set for the python in environment variable. 
 > `cqlsh`
 
 If no error on the console means **cqlsh** is connected.
