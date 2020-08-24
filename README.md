@@ -310,11 +310,11 @@ If no error on the console means **cqlsh** is connected.
 ### API Endpoints
 
 - #### Super Hero CRUD Operations
-    > **GET Mapping** http://localhost:8080/super-hero  - Get all Super Heroes
+    > **GET Mapping** http://localhost:8080/super-heroes  - Get all Super Heroes
     
-    > **GET Mapping** http://localhost:8080/super-hero/1  - Get Super Hero by ID
+    > **GET Mapping** http://localhost:8080/super-heroes/1  - Get Super Hero by ID
        
-    > **POST Mapping** http://localhost:8080/super-hero  - Add new Super Hero in DB  
+    > **POST Mapping** http://localhost:8080/super-heroes  - Add new Super Hero in DB  
     
      Request Body  
      ```
@@ -332,7 +332,7 @@ If no error on the console means **cqlsh** is connected.
      }
      ```
     
-    > **PUT Mapping** http://localhost:8080/super-hero  - Update existing Super Hero for given ID 
+    > **PUT Mapping** http://localhost:8080/super-heroes  - Update existing Super Hero for given ID 
     
      Request Body    
      ```
@@ -350,7 +350,7 @@ If no error on the console means **cqlsh** is connected.
      }
      ```
     
-    > **DELETE Mapping** http://localhost:8080/super-hero/1  - Delete Super Hero by ID
+    > **DELETE Mapping** http://localhost:8080/super-heroes/1  - Delete Super Hero by ID
 
 
 
