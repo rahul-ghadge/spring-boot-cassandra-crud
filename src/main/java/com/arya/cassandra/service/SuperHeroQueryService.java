@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface SuperHeroQueryService {
 
+    List<SuperHero> save();
+
     List<SuperHero> getAll();
 
     List<SuperHero> getSuperHeroByName(String name);
@@ -19,4 +21,5 @@ public interface SuperHeroQueryService {
     List<SuperHero> getSuperHeroByAgeGreaterThan(int age);
 
     List<SuperHero> getSuperHeroWhoCanFly(boolean canFly);
+
 }

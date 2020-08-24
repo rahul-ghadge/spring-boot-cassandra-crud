@@ -20,13 +20,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/super-hero")
+@RequestMapping("/super-heroes")
 @Tag(name = "Superhero JPA controller", description = "Superhero CRUD API with documentation annotations")
 public class SuperHeroController {
 
     @Autowired
     private SuperHeroService superHeroService;
 
+
+    @Operation(summary = "Save dummy Superheroes")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Saved superheroes list",
+                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = SuperHero.class)))}),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+    })
+    @GetMapping("/save")
+    public ResponseEntity<List<SuperHero>> save() {
+        List<SuperHero> list = superHeroService.save();
+        return ResponseEntity.ok().body(list);
+    }
 
 
     @Operation(summary = "Get all Superheroes")

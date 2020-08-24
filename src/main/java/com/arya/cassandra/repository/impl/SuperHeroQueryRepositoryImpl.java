@@ -2,6 +2,7 @@ package com.arya.cassandra.repository.impl;
 
 import com.arya.cassandra.model.SuperHero;
 import com.arya.cassandra.repository.SuperHeroQueryRepository;
+import com.arya.cassandra.utils.HelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraOperations;
 import org.springframework.data.cassandra.core.query.Criteria;
@@ -16,6 +17,15 @@ public class SuperHeroQueryRepositoryImpl implements SuperHeroQueryRepository {
 
     @Autowired
     private CassandraOperations cassandraTemplate;
+
+    @Override
+    public List<SuperHero> save() {
+        List<SuperHero> superHeroes = cassandraTemplate.select(Query.empty(), SuperHero.class);
+        if (superHeroes.isEmpty())
+            cassandraTemplate.insert(HelperUtil.superHeroesSupplier.get());
+
+        return cassandraTemplate.select(Query.empty(), SuperHero.class);
+    }
 
     @Override
     public List<SuperHero> getAll() {

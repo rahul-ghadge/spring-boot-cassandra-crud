@@ -3,6 +3,7 @@ package com.arya.cassandra.service.impl;
 import com.arya.cassandra.model.SuperHero;
 import com.arya.cassandra.repository.SuperHeroRepository;
 import com.arya.cassandra.service.SuperHeroService;
+import com.arya.cassandra.utils.HelperUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,16 @@ public class SuperHeroServiceImpl implements SuperHeroService {
 
     @Autowired
     private SuperHeroRepository repository;
+
+    @Override
+    public List<SuperHero> save() {
+
+        List<SuperHero> superHeroes = repository.findAll();
+        if (superHeroes.isEmpty())
+            repository.saveAll(HelperUtil.superHeroesSupplier.get());
+
+        return repository.findAll();
+    }
 
     @Override
     public List<SuperHero> findAll() {

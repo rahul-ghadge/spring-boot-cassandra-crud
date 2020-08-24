@@ -5,15 +5,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.cassandra.config.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecification;
-import org.springframework.data.cassandra.core.cql.keyspace.DropKeyspaceSpecification;
 import org.springframework.data.cassandra.core.cql.keyspace.KeyspaceOption;
-import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 import java.util.Collections;
 import java.util.List;
 
 @Configuration
-@EnableCassandraRepositories
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
     @Value("${spring.data.cassandra.keyspace-name: simple_crud}")
@@ -46,7 +43,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         return Collections.singletonList(CreateKeyspaceSpecification.createKeyspace(KEYSPACE)
                 .ifNotExists()
                 .with(KeyspaceOption.DURABLE_WRITES, true)
-                .withSimpleReplication());
+                .withSimpleReplication(3L));
     }
 
     @Override
@@ -54,10 +51,10 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         return "datacenter1";
     }
 
-    @Override
-    protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-        return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-    }
+//    @Override
+//    protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
+//        return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
+//    }
 
     @Override
     protected String getKeyspaceName() {

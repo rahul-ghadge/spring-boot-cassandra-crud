@@ -13,17 +13,34 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/super-hero-query")
+@RequestMapping("/super-heroes-query")
 @Tag(name = "Superhero Query controller", description = "Get Superhero APIs using Queries")
 public class SuperHeroQueryController {
 
     @Autowired
     private SuperHeroQueryService superHeroQueryService;
+
+
+//    @Operation(summary = "Save dummy Superheroes")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "Saved superheroes list",
+//                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = SuperHero.class)))}),
+//            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
+//    })
+//    @GetMapping("/save")
+//    public ResponseEntity<List<SuperHero>> save() {
+//        List<SuperHero> list = superHeroQueryService.save();
+//        return ResponseEntity.ok().body(list);
+//    }
+
 
     @Operation(summary = "Get all Superheroes using query")
     @ApiResponses(value = {

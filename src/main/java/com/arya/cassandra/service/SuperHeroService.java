@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface SuperHeroService {
 
+    List<SuperHero> save();
+
     List<SuperHero> findAll();
 
     SuperHero findById(Long id);
@@ -16,4 +18,5 @@ public interface SuperHeroService {
     SuperHero update(SuperHero superHero);
 
     void delete(Long id);
+
 }
