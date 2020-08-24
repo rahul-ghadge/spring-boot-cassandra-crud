@@ -171,7 +171,7 @@ If no error on the console means **cqlsh** is connected.
    This is the most important class in this application, where all cassandra related configuration is placed 
    and using this class we are connecting to cassandra and creating **KEYSPACE** and **TABLES** also while starting the application.
 
-   ````
+   ```
    import org.springframework.beans.factory.annotation.Value;
    import org.springframework.context.annotation.Configuration;
    import org.springframework.data.cassandra.config.AbstractCassandraConfiguration;
