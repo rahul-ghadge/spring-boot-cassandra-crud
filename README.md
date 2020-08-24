@@ -48,30 +48,24 @@ Or
 ---
 
 ### Install JDK8
-Step 1: Download JDK8 from [JDK site](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html).
-
-Step 2: Install downloaded executable file.
-
-Step 3: Add JDK8 path as environment variable.
+Step 1: Download JDK8 from [JDK site](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html).  
+Step 2: Install downloaded an executable file.  
+Step 3: Add JDK8 path as environment variable.  
 
 
 
 ### Setup cqlsh (cassandra query language shell) - for monitoring stored data
-Step 1: **Python2.7** is mandatory for cqlsh to handle user requests. Download Python2.7 from [Python site](https://www.python.org/downloads/release/python-2718/).
-
-Step 2: Install downloaded executable file.
-
-Step 3: Add Python2.7 path as environment variable.
+Step 1: **Python2.7** is mandatory for cqlsh to handle user requests. Download Python2.7 from [Python site](https://www.python.org/downloads/release/python-2718/).  
+Step 2: Install downloaded an executable file.  
+Step 3: Add Python2.7 path as environment variable.  
 
 
 
 
 ### Setup Cassandra
-Step 1: Download the latest version of apache-cassandra-x.xx.x from [Cassandra site](https://cassandra.apache.org/download/).
-
-Step 2: Unzip the compressed zip file using a compression tool to any location. Ex. c:\apache-cassandra-x.xx.x
-
-Step 3: Add c:\apache-cassandra-x.xx.x\bin path as environment variable
+Step 1: Download the latest version of apache-cassandra-x.xx.x from [Cassandra site](https://cassandra.apache.org/download/).  
+Step 2: Unzip the compressed zip file using a compression tool to any location. Ex. c:\apache-cassandra-x.xx.x  
+Step 3: Add c:\apache-cassandra-x.xx.x\bin path as environment variable.  
 
 
 ---
@@ -79,15 +73,14 @@ Step 3: Add c:\apache-cassandra-x.xx.x\bin path as environment variable
 #### Start the Cassandra and cqlsh 
 
 ##### Start Cassandra
-Make sure bin path is set for cassandra in environment variable. 
-
+Make sure bin path is set for cassandra in environment variable.  
 > `cassandra`
 
 If no error on the console means cassandra is started and running.
 
 
 ##### Start cqlsh 
-Make sure path is set for the python in environment variable. 
+Make sure path is set for the python in environment variable.  
 > `cqlsh`
 
 If no error on the console means **cqlsh** is connected.
@@ -186,13 +179,11 @@ If no error on the console means **cqlsh** is connected.
    import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecification;
    import org.springframework.data.cassandra.core.cql.keyspace.DropKeyspaceSpecification;
    import org.springframework.data.cassandra.core.cql.keyspace.KeyspaceOption;
-   import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
    
    import java.util.Collections;
    import java.util.List;
    
    @Configuration
-   @EnableCassandraRepositories
    public class CassandraConfig extends AbstractCassandraConfiguration {
    
        @Value("${spring.data.cassandra.keyspace-name: simple_crud}")
@@ -225,7 +216,7 @@ If no error on the console means **cqlsh** is connected.
            return Collections.singletonList(CreateKeyspaceSpecification.createKeyspace(KEYSPACE)
                    .ifNotExists()
                    .with(KeyspaceOption.DURABLE_WRITES, true)
-                   .withSimpleReplication());
+                   .withSimpleReplication(3L));
        }
    
        @Override
@@ -233,10 +224,10 @@ If no error on the console means **cqlsh** is connected.
            return "datacenter1";
        }
    
-       @Override
-       protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-           return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-       }
+       //@Override
+       //protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
+       //    return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
+       //}
    
        @Override
        protected String getKeyspaceName() {
@@ -261,9 +252,12 @@ If no error on the console means **cqlsh** is connected.
     
     ```
     @RestController
-    @RequestMapping("/super-hero")
+    @RequestMapping("/super-heroes")
     public class SuperHeroController {
         
+        @GetMapping("/save")
+        public ResponseEntity<List<SuperHero>> save();
+   
         @GetMapping
         public ResponseEntity<List<SuperHero>> findAll();
     
