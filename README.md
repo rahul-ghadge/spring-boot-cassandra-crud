@@ -35,7 +35,7 @@ Or
 
 ||
 |  ---------    |
-| **_Note_** : In `SpringBootCassandraCrudApplication.java` class we have autowired both SuperHero repositories. <br/>If there is no record present in DB for any one of that SuperHero model class, static data is getting inserted in DB from `HelperUtil.java` class when we are starting the app for the first time.| 
+| **_Note_** : In `SpringBootCassandraCrudApplication.java` class we have autowired SuperHero repository. <br/>If there is no record present in DB for SuperHero model class, static data is getting inserted in DB from `HelperUtil.java` class when we are starting the app for the first time.| 
 
 
 ---
@@ -43,7 +43,7 @@ Or
 
 > **http://localhost:8080/swagger-ui-custom.html**
 
-![Swagger Documentation](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
+![Swagger Documentation](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/static/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
 
 ---
 
@@ -87,7 +87,7 @@ If no error on the console means cassandra is started and running.
 
 
 ##### Start cqlsh 
-Make sure bin path is set for the python in environment variable. 
+Make sure path is set for the python in environment variable. 
 > `cqlsh`
 
 If no error on the console means **cqlsh** is connected.
@@ -122,7 +122,7 @@ If no error on the console means **cqlsh** is connected.
 2. #### Properties file
      Placed properties in **application.yml** file related to cassandra which we are reading in **CassandraConfig.java** class
      and configuring cassandra connection for Cassandra.  
-     API documentation related swagger UI path is also placed here which will enable Swagger API Doc on same path.
+     API documentation related swagger UI path is also placed here which will enable Swagger API Doc on same path.  
      **src/main/resources/application.yml**     
      ```
      spring:
@@ -283,6 +283,7 @@ If no error on the console means **cqlsh** is connected.
    
     In **com.arya.cassandra.repository.SuperHeroRepository.java**, we are extending `CassandraRepository<Class, ID>` interface which enables CRUD related methods.
     ```
+    @Repository
     public interface SuperHeroRepository extends CassandraRepository<SuperHero, Long> {
     }
     ```
@@ -355,5 +356,4 @@ If no error on the console means **cqlsh** is connected.
 
 ### Output
 
-![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
-![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/spring-boot-cassandra-crud-Swagger.PNG?raw=true "Spring Data Cassandra Swagger")
+![Alt text](https://github.com/rahul-ghadge/spring-boot-cassandra-crud/blob/master/src/main/resources/static/spring-data-cassandra-output.PNG?raw=true "Spring Data Cassandra output")
