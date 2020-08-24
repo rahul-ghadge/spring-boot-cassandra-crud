@@ -238,7 +238,10 @@ If no error on the console means **cqlsh** is connected.
        public String[] getEntityBasePackages() {
            return new String[] {"com.arya.cassandra.model"};
        }   
-   }  
+   }
+   ```
+   
+   
    
 5. #### CRUD operation for Super Heroes
 
