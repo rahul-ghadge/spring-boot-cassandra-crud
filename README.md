@@ -88,27 +88,37 @@ If no error on the console means **cqlsh** is connected.
 
 ### Code Snippets
 1. #### Maven Dependencies
-    Need to add below dependency to enable cassandra in **pom.xml**.    
+    We are using spring 2.2.7-RELEASE version in **pom.xml**.    
+    ```
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    ```
+    
+    Need to add below dependency to enable cassandra.  
     ```
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-data-cassandra</artifactId>
 	</dependency>
    		
-   <!-- For Boilerplate code (Getters/Setters/Constructors) -->
-   <dependency>
+    <!-- For Boilerplate code (Getters/Setters/Constructors) -->
+    <dependency>
    		<groupId>org.projectlombok</groupId>
    		<artifactId>lombok</artifactId>
    		<optional>true</optional>
-   </dependency>
+    </dependency>
     ```
     
     For API documentation using swagger and OpenApi UI add below dependency.
 	```
 	<dependency>
 	    <groupId>org.springdoc</groupId>
-		<artifactId>springdoc-openapi-ui</artifactId>
-		<version>1.4.4</version>
+	    <artifactId>springdoc-openapi-ui</artifactId>
+	    <version>1.4.4</version>
 	</dependency>
 	```
    
@@ -220,14 +230,14 @@ If no error on the console means **cqlsh** is connected.
        }
    
        @Override
-       protected String getLocalDataCenter() {
-           return "datacenter1";
+       protected boolean getMetricsEnabled() {
+           return false;
        }
    
-       //@Override
-       //protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-       //    return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-       //}
+       @Override
+       protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
+           return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
+       }
    
        @Override
        protected String getKeyspaceName() {
