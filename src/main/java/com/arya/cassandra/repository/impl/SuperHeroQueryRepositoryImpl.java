@@ -34,22 +34,22 @@ public class SuperHeroQueryRepositoryImpl implements SuperHeroQueryRepository {
 
     @Override
     public List<SuperHero> getSuperHeroByName(String name) {
-        return cassandraTemplate.select(Query.query(Criteria.where("name").is(name)), SuperHero.class);
+        return cassandraTemplate.select(Query.query(Criteria.where("name").is(name)).withAllowFiltering(), SuperHero.class);
     }
 
     @Override
     public SuperHero getOneSuperHeroByName(String name) {
-        return cassandraTemplate.selectOne(Query.query(Criteria.where("name").is(name)), SuperHero.class);
+        return cassandraTemplate.selectOne(Query.query(Criteria.where("name").is(name)).withAllowFiltering(), SuperHero.class);
     }
 
     @Override
     public List<SuperHero> getSuperHeroByNameLike(String name) {
-        return cassandraTemplate.select(Query.query(Criteria.where("name").like(name)), SuperHero.class);
+        return cassandraTemplate.select(Query.query(Criteria.where("name").like(name)).withAllowFiltering(), SuperHero.class);
     }
 
     @Override
     public SuperHero getSingleSuperHeroBySuperName(String superName) {
-        return cassandraTemplate.selectOne(Query.query(Criteria.where("super_name").is(superName)), SuperHero.class);
+        return cassandraTemplate.selectOne(Query.query(Criteria.where("super_name").is(superName)).withAllowFiltering(), SuperHero.class);
     }
 
     @Override
