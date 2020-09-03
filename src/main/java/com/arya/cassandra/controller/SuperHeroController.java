@@ -27,7 +27,7 @@ import java.util.List;
 @Tag(name = "Superhero JPA controller", description = "Superhero CRUD API with documentation annotations")
 public class SuperHeroController {
 
-    Logger LOG = LoggerFactory.getLogger(getClass());
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private SuperHeroService superHeroService;
@@ -42,9 +42,9 @@ public class SuperHeroController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public void save() {
 
-        LOG.info("*** Storing dummy static data to DB ***");
+        logger.info("*** Storing dummy static data to DB ***");
         List<SuperHero> list = superHeroService.save();
-        LOG.info("Stored data to DB :: {}", list);
+        logger.info("Stored data to DB :: {}", list);
     }
 
 
@@ -57,9 +57,9 @@ public class SuperHeroController {
     @GetMapping
     public ResponseEntity<List<SuperHero>> findAll() {
 
-        LOG.info("*** Getting Superheroes from DB ***");
+        logger.info("*** Getting Superheroes from DB ***");
         List<SuperHero> list = superHeroService.findAll();
-        LOG.info("Superheroes fetched from DB :: {}", list);
+        logger.info("Superheroes fetched from DB :: {}", list);
 
         return ResponseEntity.ok().body(list);
     }
@@ -78,13 +78,13 @@ public class SuperHeroController {
     @GetMapping("/{id}")
     public ResponseEntity<SuperHero> findById(@PathVariable Long id) {
 
-        LOG.info("*** Getting Superhero from DB for Id :: {}", id);
+        logger.info("*** Getting Superhero from DB for Id :: {}", id);
         SuperHero superHero = superHeroService.findById(id);
 
         if (StringUtils.isEmpty(superHero.getName()))
             return ResponseEntity.notFound().build();
 
-        LOG.info("Superhero fetched :: {}", superHero);
+        logger.info("Superhero fetched :: {}", superHero);
         return ResponseEntity.ok().body(superHero);
     }
 
@@ -100,9 +100,9 @@ public class SuperHeroController {
     @PostMapping
     public ResponseEntity<SuperHero> save(@Parameter(description = "Superhero object to be created") @RequestBody SuperHero superHero) {
 
-        LOG.info("*** Saving Superhero to DB :: {}", superHero);
+        logger.info("*** Saving Superhero to DB :: {}", superHero);
         SuperHero savedSuperHero = superHeroService.save(superHero);
-        LOG.info("*** Saved Superhero to DB ***");
+        logger.info("*** Saved Superhero to DB ***");
 
         return ResponseEntity.ok().body(savedSuperHero);
     }
@@ -118,9 +118,9 @@ public class SuperHeroController {
     @PutMapping
     public ResponseEntity<SuperHero> update(@Parameter(description = "Superhero object to be updated") @RequestBody SuperHero superHero) {
 
-        LOG.info("*** Updating Superhero :: {}", superHero);
+        logger.info("*** Updating Superhero :: {}", superHero);
         SuperHero updatedSuperHero = superHeroService.update(superHero);
-        LOG.info("*** Updated Superhero to DB :: {}", superHero);
+        logger.info("*** Updated Superhero to DB :: {}", superHero);
 
         return ResponseEntity.ok().body(updatedSuperHero);
     }
@@ -136,9 +136,9 @@ public class SuperHeroController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@Parameter(description = "Superhero id to be deleted") @PathVariable Long id) {
 
-        LOG.info("*** Deleting Superhero from DB for Id :: {}", id);
+        logger.info("*** Deleting Superhero from DB for Id :: {}", id);
         superHeroService.delete(id);
-        LOG.info("*** Deleted Superhero from DB for Id :: {}", id);
+        logger.info("*** Deleted Superhero from DB for Id :: {}", id);
 
         return ResponseEntity.ok().body("Deleted successfully...!");
     }

@@ -22,7 +22,7 @@ public class SuperHeroQueryRepositoryImpl implements SuperHeroQueryRepository {
     public List<SuperHero> save() {
         List<SuperHero> superHeroes = cassandraTemplate.select(Query.empty(), SuperHero.class);
         if (superHeroes.isEmpty())
-            cassandraTemplate.insert(HelperUtil.superHeroesSupplier.get());
+            cassandraTemplate.insert(HelperUtil.getSuperHeroesData());
 
         return cassandraTemplate.select(Query.empty(), SuperHero.class);
     }
@@ -61,6 +61,5 @@ public class SuperHeroQueryRepositoryImpl implements SuperHeroQueryRepository {
     public List<SuperHero> getSuperHeroWhoCanFly(boolean canFly) {
         List<SuperHero> superHeroList = cassandraTemplate.select(Query.empty(), SuperHero.class);
         return superHeroList.stream().filter(superHero -> superHero.getSuperPowers().isCanFly() == canFly).collect(Collectors.toList());
-        //    return cassandraTemplate.select(Query.query(Criteria.where("super_powers.canFly").is(canFly)), SuperHero.class);
     }
 }

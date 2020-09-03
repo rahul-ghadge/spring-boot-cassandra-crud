@@ -18,7 +18,7 @@ import java.util.List;
 @EnableCassandraRepositories
 public class SpringBootCassandraCrudApplication {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 
 	public static void main(String[] args) {
@@ -32,12 +32,12 @@ public class SpringBootCassandraCrudApplication {
 	CommandLineRunner runner() {
 		return args -> {
 			List<SuperHero> superHeroes = superHeroRepository.findAll();
-			if (superHeroes.size() == 0) {
-				LOGGER.info("******* Inserting Super heroes to DB *******");
-				superHeroRepository.saveAll(HelperUtil.superHeroesSupplier.get());
+			if (superHeroes.isEmpty()) {
+				logger.info("******* Inserting Super heroes to DB *******");
+				superHeroRepository.saveAll(HelperUtil.getSuperHeroesData());
 			} else {
-				LOGGER.info("******* Super heroes stored in DB Size :: {}", superHeroes.size());
-				LOGGER.info("******* Super heroes stored in DB :: {}", superHeroes);
+				logger.info("******* Super heroes stored in DB Size :: {}", superHeroes.size());
+				logger.info("******* Super heroes stored in DB :: {}", superHeroes);
 			}
 		};
 	}

@@ -14,23 +14,23 @@ import java.util.List;
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
     @Value("${spring.data.cassandra.keyspace-name: simple_crud}")
-    private String KEYSPACE;
+    private String keyspace;
 
     @Value("${spring.data.cassandra.contact-points: localhost}")
-    private String CONTACT_POINT;
+    private String contactPoint;
 
     @Value("${spring.data.cassandra.port: 9042}")
-    private int PORT;
+    private int port;
 
 
     @Override
     public String getContactPoints() {
-        return CONTACT_POINT;
+        return contactPoint;
     }
 
     @Override
     protected int getPort() {
-        return PORT;
+        return port;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
 
     @Override
     protected List<CreateKeyspaceSpecification> getKeyspaceCreations() {
-        return Collections.singletonList(CreateKeyspaceSpecification.createKeyspace(KEYSPACE)
+        return Collections.singletonList(CreateKeyspaceSpecification.createKeyspace(keyspace)
                 .ifNotExists()
                 .with(KeyspaceOption.DURABLE_WRITES, true)
                 .withSimpleReplication(3L));
@@ -51,14 +51,9 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         return "datacenter1";
     }
 
-//    @Override
-//    protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-//        return Collections.singletonList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-//    }
-
     @Override
     protected String getKeyspaceName() {
-        return KEYSPACE;
+        return keyspace;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class SuperHeroServiceImpl implements SuperHeroService {
 
         List<SuperHero> superHeroes = repository.findAll();
         if (superHeroes.isEmpty())
-            repository.saveAll(HelperUtil.superHeroesSupplier.get());
+            repository.saveAll(HelperUtil.getSuperHeroesData());
 
         return repository.findAll();
     }

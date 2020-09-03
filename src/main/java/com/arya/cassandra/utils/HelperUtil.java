@@ -12,7 +12,11 @@ public class HelperUtil {
     private HelperUtil() {
     }
 
-    public static Supplier<List<SuperHero>> superHeroesSupplier = () ->
+    public static List<SuperHero> getSuperHeroesData() {
+        return superHeroesSupplier.get();
+    }
+
+    private static final Supplier<List<SuperHero>> superHeroesSupplier = () ->
             Arrays.asList(
                     SuperHero.builder().id(1L).name("Bruce").superName("Hulk").profession("Doctor").age(50)
                             .superPowers(SuperPowers.builder().strength("Body").durability("Week").canFly(false).build()).build(),

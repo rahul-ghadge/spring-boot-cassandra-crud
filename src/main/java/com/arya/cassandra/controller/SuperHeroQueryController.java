@@ -29,19 +29,6 @@ public class SuperHeroQueryController {
     private SuperHeroQueryService superHeroQueryService;
 
 
-//    @Operation(summary = "Save dummy Superheroes")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "Saved superheroes list",
-//                    content = { @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, array = @ArraySchema(schema = @Schema(implementation = SuperHero.class)))}),
-//            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
-//    })
-//    @GetMapping("/save")
-//    public ResponseEntity<List<SuperHero>> save() {
-//        List<SuperHero> list = superHeroQueryService.save();
-//        return ResponseEntity.ok().body(list);
-//    }
-
-
     @Operation(summary = "Get all Superheroes using query")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Superheroes list",
